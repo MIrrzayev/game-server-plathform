@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RedWolf - Profile</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="profilestyle.css">
+</head>
+<body id="profilePage">
+<header class="top-container">
+    <div class="nav-left">
+        <div class="brand">
+            <div class="logo"></div>
+            <div class="logo-content">
+                <p class="content-white">| Red</p>
+                <p class="content-red">Wolf</p>
+            </div>
+        </div>
+        <div class="links">
+            <a href="index.html" class="link">
+                Home Page
+            </a>
+            <a href="#" class="link">
+                All Games
+            </a>
+        </div>
+    </div>
+    <div class="account">
+        <a href="#" class="link" id="logoutButton">
+            Log Out
+        </a>
+        <a href="profile.html">
+            <div class="get-account"></div>
+        </a>
+    </div>
+</header>
+<main class="profile-content">
+    <section class="profile-header">
+        <div class="profile-avatar">
+            <img src="accounticon.png" alt="Profile">
+        </div>
+        <div class="profile-title">
+            <h1 id="profileUsername">
+                Loading...
+            </h1>
+            <p>
+                RedWolf Member
+            </p>
+        </div>
+    </section>
+    <section class="profile-card">
+        <div class="card-header">
+            <h2>
+                Account Information
+            </h2>
+        </div>
+        <div class="profile-info">
+            <div class="info-item">
+                <span class="info-label">
+                    Username
+                </span>
+                <span
+                    class="info-value"
+                    id="username">
+                    Loading...
+                </span>
+            </div>
+            <div class="info-item">
+                <span class="info-label">
+                    Email
+                </span>
+                <span
+                    class="info-value"
+                    id="profileEmail">
+                    Loading...
+                </span>
+            </div>
+        </div>
+    </section>
+    <section class="profile-card">
+        <div class="card-header">
+            <h2>Gaming Profile</h2>
+            <button type="button" id="addGameButton" class="add-game-button">
+                + Add Game
+            </button>
+        </div>
+        <div id="gamesContainer" class="games-grid">
+            <div class="game-card">
+                <div class="game-cover">
+                    <img src="newwebsite.jpg" alt="Minecraft">
+                </div>
+                <div class="game-card-info">
+                    <div class="game-title-row">
+                        <h3>Minecraft</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="game-card">
+                <div class="game-cover">
+                    <img src="cocbg.jpg" alt="Clash of Clans">
+                </div>
+                <div class="game-card-info">
+                    <div class="game-title-row">
+                        <h3>Clash of Clans</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+<script src="script.js"></script>
+</body>
+</html>

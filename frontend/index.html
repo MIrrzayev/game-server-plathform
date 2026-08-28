@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RedWolf - HomePage</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="indexstyle.css">
+</head>
+<body id="homePage">
+    <header class="top-container">
+        <div class="nav-left">
+            <div class="brand">
+                <div class="logo"></div>
+                <div class="logo-content">
+                    <p class="content-white">|&nbsp;Red</p>
+                    <p class="content-red">Wolf</p>
+                </div>
+            </div>
+            <div class="links">
+                <a href="index.html" class="link">Home Page</a>
+                <a href="#" class="link">All Games</a>
+            </div>
+        </div>
+        <div class="account">
+            <a href="#" class="link" id="logoutButton">Log Out</a>
+            <a href="profile.html"><div class="get-account"></div></a>
+        </div>
+    </header>
+
+    <div class="main-wrapper">
+        <aside class="game-sidebar">
+            <div class="sidebar-title">
+                <span class="sidebar-icon">
+                    <img src="gameicon.png" alt="Games">
+                </span>
+                <span class="sidebar-text">Games</span>
+            </div>
+            <nav class="game-list">
+                <a href="minecraft.html" class="game-item minecraft-item">
+                    <span class="game-icon">
+                        <img src="mclogo.png" alt="Minecraft">
+                    </span>
+                    <span class="game-name">Minecraft</span>
+                </a>
+                <a href="coc.html" class="game-item coc-item">
+                    <span class="game-icon">
+                        <img src="cocicon.png" alt="Clash of Clans">
+                    </span>
+                    <span class="game-name">Clash of Clans</span>
+                </a>
+            </nav>
+        </aside>
+
+        <main class="home-content">
+            <section class="hero-section">
+                <div class="hero-logo">
+                    <img src="logo.png" alt="RedWolf Logo">
+                    <span class="hero-brand-name">
+                        <span class="content-white">| Red</span><span class="content-red">Wolf</span>
+                    </span>
+                </div>
+                <h1>Discover your game.</h1>
+                <p>Find teams, tournaments, players and communities</p>
+                <div class="global-search">
+                    <span class="search-icon">⌕</span>
+                    <input type="text" id="globalSearch" placeholder="Search teams, tournaments, players..." autocomplete="off">
+                    <button type="button" id="searchButton">Search</button>
+                </div>
+            </section>
+
+            <section class="trending-section">
+                <div class="section-header">
+                    <h2>Trending Now</h2>
+                    <a href="#">View all</a>
+                </div>
+                <div class="trending-grid">
+                    <div class="trend-card">
+                        <div class="trend-icon">🏆</div>
+                        <div>
+                            <h3>Teams</h3>
+                            <p>Discover popular esports teams</p>
+                        </div>
+                    </div>
+                    <div class="trend-card">
+                        <div class="trend-icon">🎯</div>
+                        <div>
+                            <h3>Tournaments</h3>
+                            <p>Find upcoming tournaments</p>
+                        </div>
+                    </div>
+                    <div class="trend-card">
+                        <div class="trend-icon">👤</div>
+                        <div>
+                            <h3>Players</h3>
+                            <p>Explore gaming players</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="news-section">
+                <div class="section-header">
+                    <h2>Latest News</h2>
+                    <a href="#">View all</a>
+                </div>
+                <div class="news-grid">
+                    <article class="news-card">
+                        <div class="news-image esports-bg">
+                            <img src="esporphoto.jpg">
+                        </div>
+                        <div class="news-content">
+                            <span class="news-category">Esports</span>
+                            <h3>New tournaments are coming to RedWolf</h3>
+                            <p>Discover upcoming competitions and events from the gaming community.</p>
+                        </div>
+                    </article>
+                    <article class="news-card">
+                        <div class="news-image community-bg">
+                            <img src="communityphoto.jpg">
+                        </div>
+                        <div class="news-content">
+                            <span class="news-category">Community</span>
+                            <h3>Welcome to the RedWolf community</h3>
+                            <p>Meet new players, teams and gaming communities.</p>
+                        </div>
+                    </article>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

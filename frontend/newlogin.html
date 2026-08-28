@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RedWolf - Login</title>
+    <!-- Google Fonts: Orbitron və Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="newstyle.css">
+
+</head>
+<body>
+    <div class="auth-container">
+        <!-- Left Side --> 
+         <div class="background-side">
+            <div class="background-overlay"></div>
+            <div class="logo"></div>
+            <div class="logo-content">
+                <p class="content-white">| Red</p>
+                <p class="content-red">Wolf</p>
+            </div>
+            <div class="background-content">
+                <h2>Enter the world.</h2>
+                <p>Discover Minecraft servers, meet new players and build your community.</p>
+            </div>
+         </div>
+        <!-- Right Side -->
+         <div class="login-side">
+            <div class="login-container">
+                <div class="welcome">
+                    <h1>Welcome</h1>
+                    <p>Please enter your email and password</p>
+                </div>
+                <form id="loginForm">
+                    <div class="input-group">
+                        <input type="email" id="email" placeholder="Email"required>
+                    </div>
+                    <div class="input-group">
+                        <input type="password" id="password" placeholder="Password" required>
+                    </div>
+                    <button type="submit" class="login-button">Login</button>
+                </form>
+                <p id="errorMessage"></p>
+                <a href="#" class="forgot-password">Forgot password?</a>
+                <div class="divider">
+                    <span></span>
+                    <p>Or</p>
+                    <span></span>
+                </div>
+                <div class="social-login">
+                    <button type="button">G</button>
+                    <button type="button">f</button>
+                </div>
+                <p class="register-text">
+                    Don't have an account?
+                    <a href="newregister.html">Register now!</a>
+                </p>
+            </div>
+         </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

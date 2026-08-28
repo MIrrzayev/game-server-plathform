@@ -1,0 +1,422 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    min-height: 100vh;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #191a1f;
+    color: white;
+}
+
+/* Header */
+.top-container{
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    width: 100%;
+    background-color: #202126;
+    height: 70px;
+    border-bottom: 3px solid #000;
+    align-items: center;
+    padding: 0 20px;
+}
+.brand{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.logo{
+    width: 45px;
+    height: 45px;
+    background-image: url(logo.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.logo-content{
+    font-size: 20px;
+    font-family: 'Orbitron', sans-serif;
+    display: flex;
+    font-weight: 700;
+}
+.nav-left{
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+.content-white{
+    color: white;
+}
+.content-red{
+    color: #ff1a1a;
+}
+.links{
+    display: flex;
+    gap: 20px;
+}
+.link{
+    color: white;
+    text-decoration: none;
+    transition: 0.3s;
+    font-weight: bold;
+}
+.link:hover{
+    color: #ff1a1a;
+    transform: translateY(-2px);
+}
+.account{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.get-account{
+    background-image: url(accounticon.png);
+    width: 40px;
+    height: 40px;
+    background-size: cover;
+    border-radius: 50%;
+}
+
+.main-wrapper{
+    display: flex;
+    width: 100%;
+    min-height: calc(100vh - 70px);
+    position: relative;
+}
+.game-sidebar{
+    position: sticky;
+    top: 70px;
+    height: calc(100vh - 70px);
+    width: 70px;
+    background: #111111;
+    padding: 20px 10px;
+    transition: width 0.3s ease;
+    z-index: 100;
+    flex-shrink: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+.game-sidebar:hover{
+    width: 230px;
+}
+.sidebar-title{
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    height: 50px;
+    padding: 0 10px;
+    white-space: nowrap;
+}
+.sidebar-icon{
+    width: 40px;
+    height: 30px;
+    min-width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.sidebar-icon img{
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+}
+.sidebar-text{
+    font-family: 'Orbitron', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+}
+.game-list{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 15px;
+}
+.game-item{
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    width: 210px;
+    height: 55px;
+    padding: 0 10px;
+    color: white;
+    text-decoration: none;
+    overflow: hidden;
+    border-radius: 8px;
+    white-space: nowrap;
+}
+.game-item::before{
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    filter: brightness(.45) blur(0.5px);
+    opacity: 0;
+    transition: opacity 0.35s ease;
+    z-index: 0;
+}
+.game-item::after{
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(28,28,28,.85) 0%, rgba(28,28,28,.55) 45%, rgba(28,28,28,.20) 100%);
+    opacity: 0;
+    transition: opacity .35s ease;
+    z-index: 1;
+}
+.game-item:hover::before, .game-item:hover::after{
+    opacity: 1;
+}
+.game-icon, .game-name{
+    position: relative;
+    z-index: 2;
+}
+.minecraft-item::before{
+    background-image: url(newwebsite.jpg);
+}
+.coc-item::before{
+    background-image: url(cocbg.jpg);
+}
+.game-icon{
+    width: 40px;
+    height: 30px;
+    min-width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.game-icon img{
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+    transition: transform 0.2s ease;
+}
+.game-item:hover .game-icon img{
+    transform: scale(1.1);
+}
+.game-name{
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+}
+.home-content{
+    flex: 1;
+    padding: 40px 50px 80px;
+}
+.hero-section{
+    max-width: 850px;
+    margin: 20px auto 70px;
+    text-align: center;
+}
+.hero-logo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 25px;
+}
+.hero-logo img{
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+}
+.hero-brand-name{
+    font-family: 'Orbitron', sans-serif;
+    font-size: 32px;
+    font-weight: 900;
+}
+.hero-section h1{
+    margin: 0;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 42px;
+    font-weight: 900;
+    letter-spacing: 1px;
+}
+.hero-section > p{
+    margin: 15px 0 30px;
+    color: #999;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+}
+.global-search{
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 62px;
+    background: #151515;
+    border: 1px solid #292929;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: border-color 0.25s ease;
+}
+.global-search:focus-within{
+    border-color: #e3262e;
+}
+.search-icon{
+    margin-left: 22px;
+    color: #777;
+    font-size: 22px;
+}
+.global-search input{
+    flex: 1;
+    height: 100%;
+    padding: 0 18px;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: white;
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+}
+.global-search input::placeholder{
+    color: #666;
+}
+.global-search button{
+    height: 44px;
+    margin-right: 9px;
+    padding: 0 22px;
+    border: none;
+    border-radius: 8px;
+    background: #e3262e;
+    color: white;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+.global-search button:hover{
+    background: #ff3038;
+    transform: translateY(-1px);
+}
+.trending-section, .news-section{
+    max-width: 1150px;
+    margin: 0 auto 70px;
+}
+.section-header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 22px;
+}
+.section-header h2{
+    margin: 0;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 22px;
+}
+.section-header a{
+    color: #888;
+    text-decoration: none;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    transition: color 0.2s ease;
+}
+.section-header a:hover{
+    color: white;
+}
+.trending-grid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+.trend-card{
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    padding: 22px;
+    min-height: 90px;
+    background: #151515;
+    border: 1px solid #242424;
+    border-radius: 12px;
+    transition: transform 0.25s ease, border-color 0.25s ease;
+}
+.trend-card:hover{
+    transform: translateY(-4px);
+    border-color: #3a3a3a;
+}
+.trend-icon{
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    background: #202020;
+    border-radius: 10px;
+    font-size: 22px;
+}
+.trend-card h3{
+    margin: 0 0 6px;
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+}
+.trend-card p{
+    margin: 0;
+    color: #777;
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+}
+.news-grid{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+}
+.news-card{
+    overflow: hidden;
+    background: #151515;
+    border: 1px solid #242424;
+    border-radius: 12px;
+    transition: transform 0.25s ease, border-color 0.25s ease;
+}
+.news-card:hover{
+    transform: translateY(-4px);
+    border-color: #3a3a3a;
+}
+.news-image{
+    height: 180px;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    background: linear-gradient(135deg, #252525, #101010);
+}
+.news-image img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.4s ease, filter 0.4s ease;
+    filter: brightness(0.85);
+}
+.news-card:hover .news-image img {
+    transform: scale(1.08);
+    filter: brightness(1);
+}
+.news-content{
+    padding: 22px;
+}
+.news-category{
+    color: #e3262e;
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+.news-content h3{
+    margin: 9px 0;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 16px;
+    line-height: 1.4;
+}
+.news-content p{
+    margin: 0;
+    color: #777;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    line-height: 1.6;
+}
