@@ -261,3 +261,34 @@ body {
     overflow: hidden;
     text-overflow: ellipsis;
 }
+
+.game-account-username{
+    color: #777;
+    display: flex;
+    justify-content: center;
+}
+
+.empty-games{
+    color: #777;
+    display: flex;
+    justify-content: center;
+    width: 1150px;
+}
+
+@media (max-width: 1000px) {
+    .games-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+@media (max-width: 800px) {
+    .games-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+@media (max-width: 600px) {
+    .games-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+        padding: 15px;
+    }
+}

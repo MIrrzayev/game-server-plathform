@@ -48,6 +48,17 @@
                     <button type="submit" class="login-button">Create Account</button>
                 </form>
                 <p id="errorMessage"></p>
+                <div id="verificationPanel" style="display: none;">
+                    <div class="welcome">
+                        <h1>Verify Your Email</h1>
+                        <p>We sent a 6-digit verification code to your email.</p>
+                    </div>
+                    <div class="input-group">
+                        <input type="text" id="verificationCode" placeholder="Enter 6-digit code" maxlength="6" inputmode="numeric">
+                    </div>
+                    <button type="button" id="verifyButton" class="login-button">Verify Email</button>
+                    <p id="verificationMessage"></p>
+                </div>
                 <div class="divider">
                     <span></span>
                     <p>Or</p>
@@ -64,6 +75,6 @@
             </div>
          </div>
     </div>
-    <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>

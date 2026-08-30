@@ -7,6 +7,6 @@ import org.springframework.stereotype.Component;
 @Component
 public class UserGameMapper {
     public UserGameResponseDTO toResponseDTO(UserGame userGame){
-        return new UserGameResponseDTO(userGame.getId(), userGame.getGame().getId(), userGame.getGame().getName(), userGame.getAccountUsername());
+        return new UserGameResponseDTO(userGame.getId(), userGame.getGame().getId(), userGame.getGame().getName(), userGame.getAccountId(), userGame.getAccountUsername());
     }
 }

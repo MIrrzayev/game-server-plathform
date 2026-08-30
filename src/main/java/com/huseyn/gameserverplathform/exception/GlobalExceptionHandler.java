@@ -16,6 +16,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(RuntimeException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     public ErrorResponse handleRuntimeException(RuntimeException exception){
+        exception.printStackTrace();
         return new ErrorResponse(HttpStatus.BAD_REQUEST.value(), exception.getMessage(), LocalDateTime.now());
     }
     @ExceptionHandler(MethodArgumentNotValidException.class)

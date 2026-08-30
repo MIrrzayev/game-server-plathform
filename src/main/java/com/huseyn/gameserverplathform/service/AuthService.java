@@ -20,6 +20,9 @@ public class AuthService {
         if(!passwordEncoder.matches(request.password(), user.getPassword())){
             throw new RuntimeException("Invalid email or password");
         }
+        if(!user.isEmailVerified()){
+            throw new RuntimeException("Please verify your email");
+        }
         String token = jwtService.generateToken(user.getUsername());
         return new LoginResponseDTO(token);
     }

@@ -1,13 +1,17 @@
 const token = localStorage.getItem("token");
 const registerForm = document.getElementById("registerForm");
+const verificationPanel = document.getElementById("verificationPanel");
+const verifyButton = document.getElementById("verifyButton");
+let registeredEmail = "";
 if (registerForm) {
     registerForm.addEventListener("submit", async function (event) {
         event.preventDefault();
-        const username = document.getElementById("username").value;
-        const email = document.getElementById("email").value;
+        const username = document.getElementById("username").value.trim();
+        const email = document.getElementById("email").value.trim();
         const password = document.getElementById("password").value;
         const confirmPassword = document.getElementById("confirmPassword").value;
         const errorMessage = document.getElementById("errorMessage");
+        errorMessage.textContent = "";
         if (password !== confirmPassword) {
             errorMessage.textContent = "Passwords do not match!";
             return;
@@ -16,14 +20,22 @@ if (registerForm) {
             const response = await fetch("http://localhost:8080/api/auth/register",
                 {
                     method: "POST",
-                    headers: {"Content-Type": "application/json"},
-                    body: JSON.stringify({ username: username, email: email, password: password})
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({username: username, email: email, password: password
+                    })
                 }
             );
+            const data = await response.json();
             if (response.ok) {
-                window.location.href = "newlogin.html";
+                registeredEmail = email;
+                registerForm.style.display = "none";
+                verificationPanel.style.display = "block";
+                errorMessage.textContent = "";
+                console.log("Registration successful:", data);
             } else {
-                errorMessage.textContent = "Registration failed!";
+                errorMessage.textContent = data.message || "Registration failed!";
             }
         } catch (error) {
             console.error("Register error:", error);
@@ -31,8 +43,41 @@ if (registerForm) {
         }
     });
 }
+if (verifyButton) {
+    verifyButton.addEventListener("click", async function () {
+        const code = document.getElementById("verificationCode").value.trim();
+        const verificationMessage = document.getElementById("verificationMessage");
+        verificationMessage.textContent = "";
+        if (!/^\d{6}$/.test(code)) {
+            verificationMessage.textContent = "Please enter a valid 6-digit code.";
+            return;
+        }
+        try {
+            const response = await fetch("http://localhost:8080/api/auth/verify-email",
+                {
+                    method: "POST",
+                    headers: {"Content-Type": "application/json"},
+                    body: JSON.stringify({
+                        email: registeredEmail,
+                        code: code
+                    })
+                }
+            );
+            const data = await response.json().catch(() => null);
+            if (response.ok) {
+                verificationMessage.textContent = "Email verified successfully!";
+                setTimeout(() => {window.location.href = "newlogin.html";
+                }, 1000);
+            } else {
+                verificationMessage.textContent = data?.message || "Invalid verification code.";
+            }
+        } catch (error) {
+            console.error("Verification error:", error);
+            verificationMessage.textContent = "Server connection failed!";
+        }
+    });
+}
 const loginForm = document.getElementById("loginForm");
-
 if (loginForm) {
     loginForm.addEventListener("submit", async function (event) {
         event.preventDefault();
@@ -121,6 +166,7 @@ if (logoutButton) {
 const gamesContainer = document.getElementById("gamesContainer");
 const emptyGames = document.getElementById("emptyGames");
 const addGameButton = document.getElementById("addGameButton");
+
 if (gamesContainer) {
     const currentToken = localStorage.getItem("token");
     if (!currentToken) {
@@ -143,31 +189,34 @@ if (gamesContainer) {
             if (games.length === 0) {
                 return;
             }
-            emptyGames.style.display = "none";
+            if (emptyGames) {
+                emptyGames.style.display = "none";
+            }
             games.forEach(game => {
                 const gameCard = document.createElement("div");
-                gameCard.className = "game-account-card";
+                gameCard.className = "game-card";
+                let gameImage = "default-game.jpg";
+                if (game.gameName === "Minecraft") {
+                    gameImage = "mcposter.webp";
+                }
+                if (game.gameName === "Clash of Clans") {
+                    gameImage = "cocposter.webp";
+                }
                 gameCard.innerHTML = `
-                    <div class="game-account-info">
-                        <div class="game-account-icon">
-                            🎮
-                        </div>
-                        <div>
-                            <h3>${game.gameName}</h3>
-                            <p>${game.accountUsername}</p>
-                        </div>
+                    <div class="game-cover">
+                        <img src="${gameImage}"  alt="${game.gameName}">
                     </div>
-                    <span class="connected">
-                        ✓ Connected
-                    </span>
-                `;
+                    <div class="game-card-info">
+                        <div class="game-title-row">
+                            <h3 title="${game.gameName}">${game.gameName}</h3>
+                        </div>
+                        <p class="game-account-username">${game.accountUsername}</p>
+                    `;
                 gamesContainer.appendChild(gameCard);
             });
         })
         .catch(error => {
-
             console.error("Games error:", error);
-
         });
     }
 }

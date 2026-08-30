@@ -1,10 +1,9 @@
 package com.huseyn.gameserverplathform.controller;
 
-import com.huseyn.gameserverplathform.dto.LoginRequestDTO;
-import com.huseyn.gameserverplathform.dto.LoginResponseDTO;
-import com.huseyn.gameserverplathform.dto.UserRequestDTO;
-import com.huseyn.gameserverplathform.dto.UserResponseDTO;
+import com.huseyn.gameserverplathform.dto.*;
+import com.huseyn.gameserverplathform.entity.EmailVerification;
 import com.huseyn.gameserverplathform.service.AuthService;
+import com.huseyn.gameserverplathform.service.EmailVerificationService;
 import com.huseyn.gameserverplathform.service.UserService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -20,6 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class AuthController {
     private final AuthService authService;
     private final UserService userService;
+    private final EmailVerificationService emailVerificationService;
     @PostMapping("/login")
     public ResponseEntity<LoginResponseDTO> login(@Valid @RequestBody LoginRequestDTO request){
         return ResponseEntity.ok(authService.login(request));
@@ -27,5 +27,10 @@ public class AuthController {
     @PostMapping("/register")
     public ResponseEntity<UserResponseDTO> register(@Valid @RequestBody UserRequestDTO request){
         return ResponseEntity.ok(userService.createUser(request));
+    }
+    @PostMapping("/verify-email")
+    public ResponseEntity<String> verifyEmail(@Valid @RequestBody VerifyEmailCodeDTO request){
+        emailVerificationService.verifyEmail(request);
+        return ResponseEntity.ok("Email verified successfully");
     }
 }
